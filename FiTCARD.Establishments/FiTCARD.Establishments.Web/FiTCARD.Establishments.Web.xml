@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FiTCARD.Establishments.Web</name>
+    </assembly>
+    <members>
+        <member name="T:FiTCARD.Establishments.Web.Controllers.Teste">
+            <summary>
+            Test Controller
+            </summary>
+        </member>
+        <member name="M:FiTCARD.Establishments.Web.Controllers.Teste.Index">
+            <summary>
+            Test
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

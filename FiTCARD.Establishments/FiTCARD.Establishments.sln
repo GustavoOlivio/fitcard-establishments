@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiTCARD.Establishments.Web", "FiTCARD.Establishments.Web\FiTCARD.Establishments.Web.csproj", "{A4A13C16-A442-433E-B65F-1A3471EF3766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiTCARD.Establishments.Service", "FiTCARD.Establishments.Service\FiTCARD.Establishments.Service.csproj", "{C4F8F7CA-D05A-41AE-90EB-672D0753636E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiTCARD.Establishments.Repository", "FiTCARD.Establishments.Repository\FiTCARD.Establishments.Repository.csproj", "{415E5703-EDEF-4854-B994-C0D7B72E2C44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiTCARD.Establishments.Model", "FiTCARD.Establishments.Model\FiTCARD.Establishments.Model.csproj", "{4A6F54D9-9E44-4F0D-829E-6D2664A45360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiTCARD.Establishments.Test", "FiTCARD.Establishments.Test\FiTCARD.Establishments.Test.csproj", "{21219268-B374-4209-A049-5E0CFD59CCF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4A13C16-A442-433E-B65F-1A3471EF3766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A13C16-A442-433E-B65F-1A3471EF3766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A13C16-A442-433E-B65F-1A3471EF3766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A13C16-A442-433E-B65F-1A3471EF3766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F8F7CA-D05A-41AE-90EB-672D0753636E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F8F7CA-D05A-41AE-90EB-672D0753636E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F8F7CA-D05A-41AE-90EB-672D0753636E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F8F7CA-D05A-41AE-90EB-672D0753636E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415E5703-EDEF-4854-B994-C0D7B72E2C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415E5703-EDEF-4854-B994-C0D7B72E2C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415E5703-EDEF-4854-B994-C0D7B72E2C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415E5703-EDEF-4854-B994-C0D7B72E2C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6F54D9-9E44-4F0D-829E-6D2664A45360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6F54D9-9E44-4F0D-829E-6D2664A45360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6F54D9-9E44-4F0D-829E-6D2664A45360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6F54D9-9E44-4F0D-829E-6D2664A45360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21219268-B374-4209-A049-5E0CFD59CCF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21219268-B374-4209-A049-5E0CFD59CCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21219268-B374-4209-A049-5E0CFD59CCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21219268-B374-4209-A049-5E0CFD59CCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5AC7F7C-D519-4D20-B8F1-C368E2F611B0}
+	EndGlobalSection
+EndGlobal
