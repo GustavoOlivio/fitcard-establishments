@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Project\fitcard-establishments\FiTCARD.Establishments\FiTCARD.Establishments.Model\FiTCARD.Establishments.Model.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="FiTCARD.Establishments.Model.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
