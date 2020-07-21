@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FiTCARD.Establishments.Repository.Categorias;
+using FiTCARD.Establishments.Service.Categorias;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +24,10 @@ namespace FiTCARD.Establishments.Web
             services.AddControllersWithViews();
 
             ConfigureSwagger(services);
+
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddTransient<ICategoriasRepository, CategoriasRepository>();
+            services.AddTransient<ICategoriasService, CategoriasService>();
         }
 
         private static void ConfigureSwagger(IServiceCollection services)

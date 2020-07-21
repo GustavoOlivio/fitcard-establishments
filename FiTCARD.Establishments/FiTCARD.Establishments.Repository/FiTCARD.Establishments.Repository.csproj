@@ -1,11 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.6" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FiTCARD.Establishments.Model\FiTCARD.Establishments.Model.csproj" />
   </ItemGroup>
 
 </Project>

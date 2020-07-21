@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FiTCARD.Establishments.Service\FiTCARD.Establishments.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="FiTCARD.Establishments.Web.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
