@@ -7,38 +7,48 @@ namespace FiTCARD.Establishments.Service.Categorias
 {
     public class CategoriasService : ICategoriasService
     {
-        private readonly ICategoriasRepository categoriasRepository;
+        private readonly ICategoriasRepository repository;
 
-        public CategoriasService(ICategoriasRepository categoriasRepository)
+        public CategoriasService(ICategoriasRepository repository)
         {
-            this.categoriasRepository = categoriasRepository;
-        }
-
-        public void Delete(CategoriasModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CategoriasModel Get(int id)
-        {
-            throw new NotImplementedException();
+            this.repository = repository;
         }
 
         public IEnumerable<CategoriasModel> GetList()
         {
-            var _categorias = categoriasRepository.GetList();
+            var _categorias = repository.GetList();
 
             return _categorias;
         }
 
-        public int Insert()
+        public CategoriasModel Get(int id)
         {
-            throw new NotImplementedException();
+            var categoria = repository.Get(id);
+
+            if (categoria != null)
+                return categoria;
+            else
+                throw new Exception("Categoria não encontrada!");
         }
 
         public void Update(CategoriasModel obj)
         {
-            throw new NotImplementedException();
+            repository.Update(obj);
+        }
+
+        public int Insert(CategoriasModel categoria)
+        {
+            var categoriaId = repository.Insert(categoria);
+
+            if (categoriaId > 0)
+                return categoriaId;
+            else
+                throw new Exception("Erro ao inserir a categoria!");
+        }
+
+        public void Delete(int id)
+        {
+            repository.Delete(id);
         }
     }
 }

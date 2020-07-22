@@ -1,27 +1,26 @@
-﻿using FiTCARD.Establishments.Model.Categorias;
-using FiTCARD.Establishments.Service.Categorias;
+﻿using FiTCARD.Establishments.Model.Estabelecimentos;
+using FiTCARD.Establishments.Service.Estabelecimentos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace FiTCARD.Establishments.Web.Controllers
 {
     [Route("api/[controller]")]
-    public class CategoriasController : Controller
+    public class EstabelecimentosController : Controller
     {
-        private readonly ICategoriasService categoriasService;
+        private readonly IEstabelecimentosService estabelecimentosService;
 
-        public CategoriasController(ICategoriasService categoriasService)
+        public EstabelecimentosController(IEstabelecimentosService estabelecimentosService)
         {
-            this.categoriasService = categoriasService;
+            this.estabelecimentosService = estabelecimentosService;
         }
 
-        
         [Route("GetList"), HttpGet]
         public IActionResult GetList()
         {
             try
             {
-                var resultado = categoriasService.GetList();
+                var resultado = estabelecimentosService.GetList();
 
                 return Ok(resultado);
             }
@@ -30,13 +29,13 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
         [Route("Get"), HttpGet]
         public IActionResult Get(int id)
         {
             try
             {
-                var resultado = categoriasService.Get(id);
+                var resultado = estabelecimentosService.Get(id);
 
                 return Ok(resultado);
             }
@@ -45,13 +44,13 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
         [Route("Update"), HttpPost]
-        public IActionResult Update([FromBody]CategoriasModel categoria)
+        public IActionResult Update([FromBody] EstabelecimentosModel estabelecimentos)
         {
             try
             {
-                categoriasService.Update(categoria);
+                estabelecimentosService.Update(estabelecimentos);
 
                 return Ok();
             }
@@ -60,13 +59,13 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
         [Route("Insert"), HttpPost]
-        public IActionResult Insert([FromBody] CategoriasModel categoria)
+        public IActionResult Insert([FromBody] EstabelecimentosModel estabelecimentos)
         {
             try
             {
-                var categoriaid = categoriasService.Insert(categoria);
+                var categoriaid = estabelecimentosService.Insert(estabelecimentos);
 
                 return Ok(categoriaid);
             }
@@ -75,13 +74,13 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
         [Route("Delete"), HttpDelete]
         public IActionResult Delete(int id)
         {
             try
             {
-                categoriasService.Delete(id);
+                estabelecimentosService.Delete(id);
 
                 return Ok();
             }

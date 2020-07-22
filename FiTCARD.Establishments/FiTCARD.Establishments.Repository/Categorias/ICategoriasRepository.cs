@@ -1,9 +1,14 @@
 ﻿using FiTCARD.Establishments.Model.Categorias;
-using FiTCARD.Establishments.Repository.Interfaces;
+using System.Collections.Generic;
 
 namespace FiTCARD.Establishments.Repository.Categorias
 {
-    public interface ICategoriasRepository : IRepository<CategoriasModel>
+    public interface ICategoriasRepository
     {
+        CategoriasModel Get(int id);
+        IEnumerable<CategoriasModel> GetList();
+        int Insert(CategoriasModel obj);
+        void Update(CategoriasModel obj);
+        void Delete(int id);
     }
 }

@@ -1,5 +1,8 @@
 using FiTCARD.Establishments.Repository.Categorias;
+using FiTCARD.Establishments.Repository.Estabelecimentos;
+using FiTCARD.Establishments.Repository.Master;
 using FiTCARD.Establishments.Service.Categorias;
+using FiTCARD.Establishments.Service.Estabelecimentos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,8 +29,11 @@ namespace FiTCARD.Establishments.Web
             ConfigureSwagger(services);
 
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddTransient<ICategoriasRepository, CategoriasRepository>();
-            services.AddTransient<ICategoriasService, CategoriasService>();
+            services.AddScoped<IMasterRepository, MasterRepository>();
+            services.AddScoped<ICategoriasService, CategoriasService>();
+            services.AddScoped<ICategoriasRepository, CategoriasRepository>();
+            services.AddScoped<IEstabelecimentosRepository, EstabelecimentosRepository>();
+            services.AddScoped<IEstabelecimentosService, EstabelecimentosService>();
         }
 
         private static void ConfigureSwagger(IServiceCollection services)

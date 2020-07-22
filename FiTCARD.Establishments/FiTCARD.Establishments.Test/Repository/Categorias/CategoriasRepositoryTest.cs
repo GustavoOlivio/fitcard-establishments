@@ -1,25 +1,32 @@
-﻿using FiTCARD.Establishments.Repository.Categorias;
+﻿using FiTCARD.Establishments.Model.Categorias;
+using FiTCARD.Establishments.Repository.Categorias;
+using FiTCARD.Establishments.Service.Categorias;
+using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace FiTCARD.Establishments.Test.Repository.Categorias
 {
     public class CategoriasRepositoryTest
     {
-        private readonly ICategoriasRepository _categoriasRepository;
-
-        public CategoriasRepositoryTest(ICategoriasRepository categoriasRepository)
-        {
-            _categoriasRepository = categoriasRepository;
-        }
-
         [Fact]
-        public void GetCategorias()
+        public void DeveBuscarCategorias()
         {
-           _categoriasRepository.GetList();
-            Assert.True(_categoriasRepository != null);
+            var categoria = new CategoriasModel
+            {
+                Id = 1,
+                Nome = "Hotel",
+                TelefoneObrigatorio = false,
+                DataCadastro = DateTime.Now
+            };
+
+            var categoriaMock = new Mock<ICategoriasRepository>();
+
+            var categoriasGetList = new CategoriasService(categoriaMock.Object);
+
+            categoriasGetList.GetList();
+
+            categoriaMock.Verify(r => r.GetList());
         }
     }
 }

@@ -1,42 +1,74 @@
 ﻿using FiTCARD.Establishments.Model.Categorias;
 using FiTCARD.Establishments.Repository.Master;
-using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
 
 namespace FiTCARD.Establishments.Repository.Categorias
 {
-    public class CategoriasRepository : MasterRepository, ICategoriasRepository
+    public class CategoriasRepository : ICategoriasRepository
     {
-        public CategoriasRepository(IConfiguration config) : base(config) { }
+        private readonly IMasterRepository masterRepository;
+        
+        public CategoriasRepository(IMasterRepository masterRepository)
+        {
+            this.masterRepository = masterRepository;
+        }
 
         public IEnumerable<CategoriasModel> GetList()
         {
-            var query = "SELECT * FROM [dbo].[Categorias]";
+            var query = "SELECT * FROM [dbo].[Categorias] (NOLOCK) WHERE [Ativo] = 1";
 
-            var _categorias = QueryList<CategoriasModel>(base.GetConnection(), query);
+            var _categorias = masterRepository.QueryList<CategoriasModel>(query);
 
             return _categorias;
         }
 
-        public void Delete(CategoriasModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public CategoriasModel Get(int id)
         {
-            throw new NotImplementedException();
+            var query = "SELECT * FROM [dbo].[Categorias] (NOLOCK) WHERE [Id] = @id";
+
+            var categoria = masterRepository.QueryGetById<CategoriasModel>(query, id);
+
+            return categoria;
+        }
+        
+        public void Update(CategoriasModel categoria)
+        {
+            var query = @"
+                UPDATE [dbo].[Categorias]
+                  SET[Nome] = @Nome,
+                    [TelefoneObrigatorio] = @TelefoneObrigatorio,
+                      [DataCadastro] = @DataCadastro,
+                        [Ativo] = @Ativo
+                WHERE[Id] = @Id";
+
+            masterRepository.QueryUpdate(query, categoria);
         }
 
-        public int Insert()
+        public int Insert(CategoriasModel categoria)
         {
-            throw new NotImplementedException();
+            var query = @"
+                INSERT INTO [dbo].[Categorias] (
+                  [Nome],
+                    [TelefoneObrigatorio],
+                      [DataCadastro],
+                        [Ativo])
+                VALUES (
+                  @Nome,
+                    @TelefoneObrigatorio,
+                      GETDATE(),
+                        1);
+                SELECT [Id] FROM [dbo].[Categorias] (NOLOCK) WHERE [Id] = @@IDENTITY";
+
+            var categoriaId = masterRepository.QueryInsert<CategoriasModel>(query, categoria);
+
+            return categoriaId;
         }
 
-        public void Update(CategoriasModel obj)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var query = "DELETE [dbo].[Categorias] WHERE [Id] = @id";
+
+            masterRepository.QueryDelete(query, id);
         }
     }
 }
