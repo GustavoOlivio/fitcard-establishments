@@ -1,11 +1,14 @@
 ﻿using FiTCARD.Establishments.Model.Categorias;
-using FiTCARD.Establishments.Service.Interfaces;
 using System.Collections.Generic;
 
 namespace FiTCARD.Establishments.Service.Categorias
 {
-    public interface ICategoriasService : IService<CategoriasModel>
+    public interface ICategoriasService
     {
-        
+        CategoriasModel Get(int id);
+        IEnumerable<CategoriasModel> GetList();
+        int Insert(CategoriasModel obj);
+        void Update(CategoriasModel obj);
+        void Delete(int id);
     }
 }

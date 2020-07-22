@@ -6,6 +6,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Project\fitcard-establishments\FiTCARD.Establishments\FiTCARD.Establishments.Web\FiTCARD.Establishments.Web.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FiTCARD.Establishments.Model\FiTCARD.Establishments.Model.csproj" />
+    <ProjectReference Include="..\FiTCARD.Establishments.Repository\FiTCARD.Establishments.Repository.csproj" />
     <ProjectReference Include="..\FiTCARD.Establishments.Service\FiTCARD.Establishments.Service.csproj" />
   </ItemGroup>
 

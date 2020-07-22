@@ -22,5 +22,9 @@ namespace FiTCARD.Establishments.Model.Categorias
         [Required]
         [Column("DataCadastro")]
         public DateTime DataCadastro { get; set; }
+        
+        [Required]
+        [Column("Ativo")]
+        public bool Ativo { get; set; }
     }
 }
