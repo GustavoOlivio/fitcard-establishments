@@ -51,9 +51,14 @@ namespace FiTCARD.Establishments.Web.Controllers
         {
             try
             {
-                categoriasService.Update(categoria);
-
-                return Ok();
+                if (ModelState.IsValid)
+                {
+                    categoriasService.Update(categoria);
+                    return Ok();
+                }
+                else
+                    return BadRequest(ModelState);
+                
             }
             catch (Exception ex)
             {
@@ -66,9 +71,14 @@ namespace FiTCARD.Establishments.Web.Controllers
         {
             try
             {
-                var categoriaid = categoriasService.Insert(categoria);
+                if (ModelState.IsValid)
+                {
+                    var categoriaid = categoriasService.Insert(categoria);
 
-                return Ok(categoriaid);
+                    return Ok(categoriaid);
+                }
+                else
+                    return BadRequest(ModelState);
             }
             catch (Exception ex)
             {

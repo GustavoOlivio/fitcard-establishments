@@ -1,5 +1,6 @@
 ﻿using FiTCARD.Establishments.Model.Estabelecimentos;
 using FiTCARD.Establishments.Repository.Estabelecimentos;
+using FiTCARD.Establishments.Service.Util;
 using System;
 using System.Collections.Generic;
 
@@ -32,11 +33,21 @@ namespace FiTCARD.Establishments.Service.Estabelecimentos
 
         public void Update(EstabelecimentosModel obj)
         {
+            ValidaCNPJ(obj.CNPJ);
+
             repository.Update(obj);
+        }
+
+        private void ValidaCNPJ(string CNPJ)
+        {
+            if (!ValidaDoc.Cnpj(CNPJ))
+                throw new Exception("CNPJ Inválido!");
         }
 
         public int Insert(EstabelecimentosModel obj)
         {
+            ValidaCNPJ(obj.CNPJ);
+
             var estabelecimentoId = repository.Insert(obj);
 
             if (estabelecimentoId > 0)
