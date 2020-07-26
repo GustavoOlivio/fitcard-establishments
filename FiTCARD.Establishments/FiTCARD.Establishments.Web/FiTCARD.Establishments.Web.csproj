@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FiTCARD.Establishments.Model\FiTCARD.Establishments.Model.csproj" />
-    <ProjectReference Include="..\FiTCARD.Establishments.Repository\FiTCARD.Establishments.Repository.csproj" />
     <ProjectReference Include="..\FiTCARD.Establishments.Service\FiTCARD.Establishments.Service.csproj" />
   </ItemGroup>
 

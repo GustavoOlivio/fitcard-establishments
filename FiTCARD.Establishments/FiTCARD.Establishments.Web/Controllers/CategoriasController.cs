@@ -15,23 +15,22 @@ namespace FiTCARD.Establishments.Web.Controllers
             this.categoriasService = categoriasService;
         }
 
-        
-        [Route("GetList"), HttpGet]
-        public IActionResult GetList()
+        [HttpGet]
+        public IActionResult Index()
         {
-            try
-            {
-                var resultado = categoriasService.GetList();
+            var resultado = categoriasService.GetList();
 
-                return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            return View(resultado);
         }
-        
-        [Route("Get"), HttpGet]
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("Inserir")]
+        public IActionResult Inserir()
+        {
+            return View();
+        }
+
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             try
@@ -45,9 +44,9 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
-        [Route("Update"), HttpPost]
-        public IActionResult Update([FromBody]CategoriasModel categoria)
+
+        [HttpPut]
+        public IActionResult Update([FromBody] CategoriasModel categoria)
         {
             try
             {
@@ -58,14 +57,14 @@ namespace FiTCARD.Establishments.Web.Controllers
                 }
                 else
                     return BadRequest(ModelState);
-                
+
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-        
+
         [Route("Insert"), HttpPost]
         public IActionResult Insert([FromBody] CategoriasModel categoria)
         {
@@ -75,7 +74,7 @@ namespace FiTCARD.Establishments.Web.Controllers
                 {
                     var categoriaid = categoriasService.Insert(categoria);
 
-                    return Ok(categoriaid);
+                    return Ok(categoria);
                 }
                 else
                     return BadRequest(ModelState);
@@ -85,8 +84,8 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
-        [Route("Delete"), HttpDelete]
+
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             try
