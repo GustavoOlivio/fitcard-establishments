@@ -1,0 +1,29 @@
+﻿@model FiTCARD.Establishments.Model.Categorias.CategoriasModel
+
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="nome">Id</label>
+            @Html.TextBoxFor(c => c.Id, new { id = "id", @class = "form-control", @readonly = "readonly" })
+        </div>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            @Html.TextBoxFor(c => c.Nome, new { id = "nome", @class = "form-control" })
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input id="telefoneObrigatorio" class="form-check-input" asp-for="TelefoneObrigatorio" /> Telefone Obrigatório
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input id="ativo" class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+            </label>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-sm" type="submit" onclick="updateCategoria()">Salvar</button>
+            @Html.ActionLink("Cancelar", "Index", "Categorias", null, new { @class = "btn btn-warning btn-sm" })
+        </div>
+    </div>
+</div>
+<script src="~/js/categorias.js"></script>

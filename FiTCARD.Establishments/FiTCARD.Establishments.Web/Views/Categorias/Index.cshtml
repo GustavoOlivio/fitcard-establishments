@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<FiTCARD.Establishments.Model.Categorias.CategoriasModel>
+<div class="card">
+    <div class="card-body">
+        @Html.ActionLink("Nova Categoria", "Inserir", "Categorias", null, new { @class = "btn btn-success btn-sm btn-right" })
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone Obrigatório</th>
+                    <th>Data do Cadastro</th>
+                    <th>Ativo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var categoria in Model)
+                {
+                    <tr>
+                        <td>@categoria.Nome</td>
+                        <td>@categoria.TelefoneObrigatorio</td>
+                        <td>@categoria.DataCadastro</td>
+                        <td>@categoria.Ativo</td>
+                        <td>
+                            @Html.ActionLink("Editar", "Editar", "Categorias", new { id = categoria.Id }, new { @class = "btn btn-warning btn-sm" }) |
+                            <button class="btn btn-danger btn-sm" onclick="deleteCategoria(@categoria.Id)">Excluir</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/js/categorias.js"></script>
