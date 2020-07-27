@@ -30,6 +30,15 @@ namespace FiTCARD.Establishments.Web.Controllers
             return View();
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("Editar")]
+        public IActionResult Editar(int id)
+        {
+            var categoria = categoriasService.Get(id);
+
+            return View(categoria);
+        }
+        
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -45,7 +54,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [HttpPut]
+        [Route("Update"), HttpPut]
         public IActionResult Update([FromBody] CategoriasModel categoria)
         {
             try
@@ -85,7 +94,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [HttpDelete]
+        [Route("Delete"), HttpDelete]
         public IActionResult Delete(int id)
         {
             try

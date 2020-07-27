@@ -1,22 +1,24 @@
-﻿@using FiTCARD.Establishments.Model.Categorias
-@model CategoriasModel
-
-<div class="card">
+﻿<div class="card">
     <div class="card-body">
-        @using (Html.BeginForm("Insert", "Categorias", FormMethod.Post))
-        {
             <div class="form-group">
-                <label>Nome da Categoria:</label>
-                @Html.TextBoxFor(c => c.Nome, new { @class = "form-control" })
-                <label>Nome da Categoria:</label>
-                @Html.TextBoxFor(c => c.TelefoneObrigatorio, new { @class = "form-control" })
-                <label>Nome da Categoria:</label>
-                @Html.TextBoxFor(c => c.Ativo, new { @class = "form-control" })
-                @Html.TextBoxFor(c => c.DataCadastro, new { @class = "form-control" })
-                @Html.TextBoxFor(c => c.Id, new { @class = "form-control" })
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome">
             </div>
-            <input type="submit" value="send" class="btn btn-success btn-sm">
-        }
-        @Html.ActionLink("Nova Categoria", "Inserir", "Categorias", null, new { @class = "btn btn-success btn-sm" });
+            <div class="form-group">
+                <label for="Ativo">Ativo?</label>
+                <select class="form-control" id="ativo">
+                    <option selected value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="telefoneObrigatorio">Ativo?</label>
+                <select class="form-control" id="telefoneObrigatorio">
+                    <option selected>Não</option>
+                    <option>Sim</option>
+                </select>
+            </div>
+            <button type="submit" onclick="insertCategoria()">Inserir</button>
     </div>
 </div>
+<script src="~/js/categorias.js"></script>

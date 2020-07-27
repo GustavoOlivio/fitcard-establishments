@@ -37,7 +37,6 @@ namespace FiTCARD.Establishments.Repository.Categorias
                 UPDATE [dbo].[Categorias]
                   SET[Nome] = @Nome,
                     [TelefoneObrigatorio] = @TelefoneObrigatorio,
-                      [DataCadastro] = @DataCadastro,
                         [Ativo] = @Ativo
                 WHERE[Id] = @Id";
 
