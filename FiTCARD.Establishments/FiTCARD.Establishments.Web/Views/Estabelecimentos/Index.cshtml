@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FiTCARD.Establishments.Model.Estabelecimentos.EstabelecimentosModel>
+<div class="card">
+    <div class="card-body">
+        @Html.ActionLink("Novo Estabelecimento", "Inserir", "Estabelecimentos", null, new { @class = "btn btn-success btn-sm btn-right" })
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Razão Social</th>
+                    <th>Nome Fantasia</th>
+                    <th>Categoria</th>
+                    <th>Ativo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var estabelecimento in Model)
+                {
+                <tr>
+                    <td>@estabelecimento.RazaoSocial</td>
+                    <td>@estabelecimento.NomeFantasia</td>
+                    <td>@estabelecimento.CategoriaNome</td>
+                    <td>@estabelecimento.Ativo</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", "Estabelecimentos", new { id = estabelecimento.Id }, new { @class = "btn btn-warning btn-sm" }) |
+                        <button class="btn btn-danger btn-sm" onclick="deleteEstabelecimento(@estabelecimento.Id)">Excluir</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/js/estabelecimentos.js"></script>

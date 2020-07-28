@@ -14,7 +14,9 @@ namespace FiTCARD.Establishments.Repository.Estabelecimentos
 
         public IEnumerable<EstabelecimentosModel> GetList()
         {
-            var query = "SELECT * FROM [dbo].[Estabelecimentos] (NOLOCK) WHERE [Ativo] = 1";
+            var query = @"SELECT E.*, C.[Nome] CategoriaNome, C.[TelefoneObrigatorio]
+                            FROM [dbo].[Estabelecimentos] E (NOLOCK)
+                                JOIN [dbo].[Categorias] C ON C.[Id] = E.[CategoriaId]";
 
             var _estabelecimentos = masterRepository.QueryList<EstabelecimentosModel>(query);
 
@@ -23,7 +25,9 @@ namespace FiTCARD.Establishments.Repository.Estabelecimentos
 
         public EstabelecimentosModel Get(int id)
         {
-            var query = "SELECT * FROM [dbo].[Estabelecimentos] (NOLOCK) WHERE [Id] = @id";
+            var query = @"SELECT E.*, C.[Nome] CategoriaNome FROM [dbo].[Estabelecimentos] E (NOLOCK)
+                            JOIN [dbo].[Categorias] C ON C.[Id] = E.[CategoriaId]
+                                WHERE E.[Id] = @id";
 
             var categoria = masterRepository.QueryGetById<EstabelecimentosModel>(query, id);
 
@@ -80,7 +84,6 @@ namespace FiTCARD.Establishments.Repository.Estabelecimentos
                     [Cidade] = @Cidade,
                     [Estado] = @Estado,
                     [Telefone] = @Telefone,
-                    [CategoriaId] = @CategoriaId,
                     [Ativo] = @Ativo,
                     [BancoAgencia] = @BancoAgencia,
                     [BancoConta] = @BancoConta

@@ -50,9 +50,12 @@ namespace FiTCARD.Establishments.Model.Estabelecimentos
         public bool Ativo { get; set; }
 
         [Column("BancoAgencia")]
-        public string BancoAgencia { get; set; }
+        public int BancoAgencia { get; set; }
 
         [Column("BancoConta")]
-        public string BancoConta { get; set; }
+        public int BancoConta { get; set; }
+        
+        [Column("CategoriaNome")]
+        public string CategoriaNome { get; set; }
     }
 }

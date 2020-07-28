@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FiTCARD.Establishments.Web</title>
     <link href="~/lib/jquery/dist/jquery.min.js" />
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="~/css/site.css" rel="stylesheet"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <div class="container" id="nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
                 <a href="#" class="navbar-brand">
-                    <img id="logo" src="~/img/fitcard.svg" alt="FiTCARD">FiTCARD
+                    <img id="logo" src="~/img/fitcard.svg" alt="FiTCARD">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
                         aria-controls="narbar-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,11 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" id="home-menu">Home</a>
-                        <a class="nav-item nav-link" id="home-sobre">Categorias</a>
-                        <a class="nav-item nav-link" id="home-sobre">Estabelecimentos</a>
+                        <a class="nav-item nav-link" id="home-menu" href="http://nixunk.com.br:8080/swagger/" target="_blank">Documentação</a>
+                        <a class="nav-item nav-link" id="home-menu" href="https://github.com/GustavoOlivio/fitcard-establishments" target="_blank">GitHub</a>
+                        <a class="nav-item nav-link" id="home-menu" href="http://nixunk.com.br:8080">Home</a>
+                        <a class="nav-item nav-link" id="home-sobre" href="http://nixunk.com.br:8080/api/categorias/">Categorias</a>
+                        <a class="nav-item nav-link" id="home-sobre" href="http://nixunk.com.br:8080/api/estabelecimentos/">Estabelecimentos</a>
                     </div>
                 </div>
             </nav>
@@ -37,6 +39,7 @@
     <script src="~/lib//jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/site.js"></script>
+    <script src="~/lib/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

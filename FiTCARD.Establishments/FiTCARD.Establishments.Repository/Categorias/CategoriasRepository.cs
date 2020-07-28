@@ -15,7 +15,7 @@ namespace FiTCARD.Establishments.Repository.Categorias
 
         public IEnumerable<CategoriasModel> GetList()
         {
-            var query = "SELECT * FROM [dbo].[Categorias] (NOLOCK) WHERE [Ativo] = 1";
+            var query = "SELECT * FROM [dbo].[Categorias] (NOLOCK)";
 
             var _categorias = masterRepository.QueryList<CategoriasModel>(query);
 
@@ -55,7 +55,7 @@ namespace FiTCARD.Establishments.Repository.Categorias
                   @Nome,
                     @TelefoneObrigatorio,
                       GETDATE(),
-                        1);
+                        @Ativo);
                 SELECT [Id] FROM [dbo].[Categorias] (NOLOCK) WHERE [Id] = @@IDENTITY";
 
             var categoriaId = masterRepository.QueryInsert<CategoriasModel>(query, categoria);

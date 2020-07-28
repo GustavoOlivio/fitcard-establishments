@@ -1,0 +1,109 @@
+﻿@model IEnumerable<FiTCARD.Establishments.Model.Categorias.CategoriasModel>
+
+<div class="body-general">
+    <div class="card">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="razaoSocial">Razão Social:*</label>
+                    <input type="text" class="form-control" id="razaoSocial">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nomeFantasia">Nome Fantasia:</label>
+                    <input type="text" class="form-control" id="nomeFantasia">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="cnpj">CNPJ:*</label>
+                    <input type="text" class="form-control" id="cnpj">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">E-Mail:</label>
+                    <input type="text" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" class="form-control" id="endereco">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" class="form-control" id="cidade">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="estado">Estado</label>
+                    <select id="estado" class="form-control">
+                        <option value="" selected></option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" class="form-control">
+                        @foreach (var categoria in Model)
+                        {
+                            <option value="@categoria.Id">@categoria.Nome</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" class="form-control" id="telefone">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="bancoAgencia">Agência:</label>
+                    <input type="text" class="form-control" id="bancoAgencia">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="bancoConta">Conta:</label>
+                    <input type="text" class="form-control" id="bancoConta">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="dataCadastro">Data Cadastro:</label>
+                    <input type="text" class="form-control" id="dataCadastro">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="ativo">
+                    <label class="form-check-label" for="ativo">Ativo</label>
+                </div>
+            </div>
+            <button class="btn btn-success btn-sm" type="submit" onclick="insertEstabelecimento()">Inserir</button>
+            @Html.ActionLink("Cancelar", "Index", "Estabelecimentos", null, new { @class = "btn btn-warning btn-sm" })
+        </div>
+    </div>
+</div>
+<script src="~/js/estabelecimentos.js"></script>
