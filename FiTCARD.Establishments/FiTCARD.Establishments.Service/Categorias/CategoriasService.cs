@@ -50,5 +50,40 @@ namespace FiTCARD.Establishments.Service.Categorias
         {
             repository.Delete(id);
         }
+
+        public Dictionary<string, string> GetEstados()
+        {
+            var estados = new Dictionary<string, string>();
+
+            estados.Add("AC", "Acre");
+            estados.Add("AL", "Alagoas");
+            estados.Add("AP", "Amapá");
+            estados.Add("AM", "Amazonas");
+            estados.Add("BA", "Bahia");
+            estados.Add("CE", "Ceará");
+            estados.Add("DF", "Distrito Federal");
+            estados.Add("ES", "Espírito Santo");
+            estados.Add("GO", "Goiás");
+            estados.Add("MA", "Maranhão");
+            estados.Add("MT", "Mato Grosso");
+            estados.Add("MS", "Mato Grosso do Sul");
+            estados.Add("MG", "Minas Gerais");
+            estados.Add("PA", "Pará");
+            estados.Add("PB", "Paraíba");
+            estados.Add("PR", "Paraná");
+            estados.Add("PE", "Pernambuco");
+            estados.Add("PI", "Piauí");
+            estados.Add("RJ", "Rio de Janeiro");
+            estados.Add("RN", "Rio Grande do Norte");
+            estados.Add("RS", "Rio Grande do Sul");
+            estados.Add("RO", "Rondônia");
+            estados.Add("RR", "Roraima");
+            estados.Add("SC", "Santa Catarina");
+            estados.Add("SP", "São Paulo");
+            estados.Add("SE", "Sergipe");
+            estados.Add("TO", "Tocantins");
+
+            return estados;
+        }
     }
 }

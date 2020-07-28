@@ -10,5 +10,6 @@ namespace FiTCARD.Establishments.Service.Categorias
         int Insert(CategoriasModel obj);
         void Update(CategoriasModel obj);
         void Delete(int id);
+        Dictionary<string, string> GetEstados();
     }
 }

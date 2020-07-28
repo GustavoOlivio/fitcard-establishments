@@ -1,0 +1,88 @@
+﻿@model FiTCARD.Establishments.Model.Estabelecimentos.EstabelecimentosModel
+
+    <div class="body-general">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="razaoSocial">Razão Social:*</label>
+                        @Html.TextBoxFor(c => c.RazaoSocial, new { id = "razaoSocial", @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nomeFantasia">Nome Fantasia:</label>
+                        @Html.TextBoxFor(c => c.NomeFantasia, new { id = "nomeFantasia", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cnpj">CNPJ:*</label>
+                        @Html.TextBoxFor(c => c.Id, new { id = "id", @class = "form-control", type = "hidden" })
+                        @Html.TextBoxFor(c => c.CNPJ, new { id = "cnpj", @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">E-Mail:</label>
+                        @Html.TextBoxFor(c => c.Email, new { id = "email", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço:</label>
+                    @Html.TextBoxFor(c => c.Endereco, new { id = "endereco", @class = "form-control" })
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cidade">Cidade:</label>
+                        @Html.TextBoxFor(c => c.Cidade, new { id = "cidade", @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="estado">Estado</label>
+                        <select id="estado" class="form-control">
+                            @foreach (var estado in ViewBag.Estados)
+                            {
+                                if (estado.Key == @Model.Estado)
+                                {
+                                    <option value="@estado.Key" selected>@estado.Value</option>
+                                }
+                                else
+                                {
+                                    <option value="@estado.Key">@estado.Value</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="categoria">Categoria:</label>
+                        @Html.TextBoxFor(c => c.CategoriaId, new { id = "categoria", @class = "form-control", type = "hidden" })
+                        @Html.TextBoxFor(c => c.CategoriaNome, new { id = "categoriaNome", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="telefone">Telefone:</label>
+                        @Html.TextBoxFor(c => c.Telefone, new { id = "telefone", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="bancoAgencia">Agência:</label>
+                        @Html.TextBoxFor(c => c.BancoAgencia, new { id = "bancoAgencia", @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="bancoConta">Conta:</label>
+                        @Html.TextBoxFor(c => c.BancoConta, new { id = "bancoConta", @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="dataCadastro">Data Cadastro:</label>
+                        @Html.TextBoxFor(c => c.DataCadastro, new { id = "dataCadastro", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input id="ativo" class="form-check-input" asp-for="Ativo" /> Ativo
+                    </div>
+                </div>
+                <button class="btn btn-success btn-sm" type="submit" onclick="updateEstabelecimento()">Salvar</button>
+                @Html.ActionLink("Cancelar", "Index", "Estabelecimentos", null, new { @class = "btn btn-warning btn-sm" })
+            </div>
+        </div>
+    </div>
+<script src="~/js/estabelecimentos.js"></script>
