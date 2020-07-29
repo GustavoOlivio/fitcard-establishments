@@ -15,7 +15,8 @@ namespace FiTCARD.Establishments.Web.Controllers
             this.categoriasService = categoriasService;
         }
 
-        [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("Index"), HttpGet]
         public IActionResult Index()
         {
             var resultado = categoriasService.GetList();
@@ -24,21 +25,21 @@ namespace FiTCARD.Establishments.Web.Controllers
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        [Route("Inserir")]
+        [Route("Inserir"), HttpGet]
         public IActionResult Inserir()
         {
             return View();
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        [Route("Editar")]
+        [Route("Editar"), HttpGet]
         public IActionResult Editar(int id)
         {
             var categoria = categoriasService.Get(id);
 
-            return View(categoria);
+            return View(categoria); 
         }
-        
+
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -54,7 +55,22 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [Route("Update"), HttpPut]
+        [HttpGet]
+        public IActionResult GetList()
+        {
+            try
+            {
+                var resultado = categoriasService.GetList();
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
         public IActionResult Update([FromBody] CategoriasModel categoria)
         {
             try
@@ -74,7 +90,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [Route("Insert"), HttpPost]
+        [HttpPost]
         public IActionResult Insert([FromBody] CategoriasModel categoria)
         {
             try
@@ -94,7 +110,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [Route("Delete"), HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try

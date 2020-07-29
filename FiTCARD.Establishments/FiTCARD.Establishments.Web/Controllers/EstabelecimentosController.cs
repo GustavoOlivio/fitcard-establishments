@@ -19,7 +19,8 @@ namespace FiTCARD.Establishments.Web.Controllers
             this.categoriasService = categoriasService;
         }
 
-        [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("Index"), HttpGet]
         public IActionResult Index()
         {
             var resultado = estabelecimentosService.GetList();
@@ -28,7 +29,7 @@ namespace FiTCARD.Establishments.Web.Controllers
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        [Route("Inserir")]
+        [Route("Inserir"), HttpGet]
         public IActionResult Inserir()
         {
             var categorias = categoriasService.GetList();
@@ -37,7 +38,7 @@ namespace FiTCARD.Establishments.Web.Controllers
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        [Route("Editar")]
+        [Route("Editar"), HttpGet]
         public IActionResult Editar(int id)
         {
             var estabelecimentos = estabelecimentosService.Get(id);
@@ -46,7 +47,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             return View(estabelecimentos);
         }
 
-        [Route("Get"), HttpGet]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             try
@@ -60,8 +61,23 @@ namespace FiTCARD.Establishments.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                var resultado = estabelecimentosService.GetList();
 
-        [Route("Update"), HttpPut]
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
         public IActionResult Update([FromBody] EstabelecimentosModel estabelecimentos)
         {
             try
@@ -81,7 +97,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [Route("Insert"), HttpPost]
+        [HttpPost]
         public IActionResult Insert([FromBody] EstabelecimentosModel estabelecimentos)
         {
             try
@@ -101,7 +117,7 @@ namespace FiTCARD.Establishments.Web.Controllers
             }
         }
 
-        [Route("Delete"), HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try

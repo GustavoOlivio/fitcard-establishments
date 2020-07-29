@@ -33,7 +33,7 @@
         Ativo: ativo
     };
 
-    sendData('POST', '/api/estabelecimentos/insert', data, '/api/estabelecimentos/');
+    sendData('POST', '/api/estabelecimentos/', data, '/api/estabelecimentos/index/');
 }
 
 function updateEstabelecimento() {
@@ -64,19 +64,19 @@ function updateEstabelecimento() {
         Cidade: cidade,
         Estado: estado,
         DataCadastro: dataCadastro,
-        Categoria: categoria,
+        CategoriaId: categoria,
         Telefone: telefone,
         BancoAgencia: bancoAgencia,
         BancoConta: bancoConta,
         Ativo: ativo
     };
 
-    sendData('PUT', '/api/estabelecimentos/update', data, '/api/estabelecimentos/');
+    sendData('PUT', '/api/estabelecimentos/', data, '/api/estabelecimentos/index/');
 }
 
 function deleteEstabelecimento(id) {
     if (confirm('Deseja excluir o estabelecimento?'))
-        sendData('DELETE', '/api/estabelecimentos/delete?Id=' + id, null, '/api/estabelecimentos/');
+        sendData('DELETE', '/api/estabelecimentos/' + id, null, '/api/estabelecimentos/index/');
 }
 
 function validaForm() {

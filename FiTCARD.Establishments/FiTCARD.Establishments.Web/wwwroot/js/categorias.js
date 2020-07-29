@@ -12,7 +12,7 @@
         TelefoneObrigatorio: telefoneObrigatorio
     };
 
-    sendData('POST', '/api/categorias/insert', data, '/api/categorias/');
+    sendData('POST', '/api/categorias/', data, '/api/categorias/index/');
 }
 
 function updateCategoria() {
@@ -31,12 +31,12 @@ function updateCategoria() {
         TelefoneObrigatorio: telefoneObrigatorio
     };
 
-    sendData('PUT', '/api/categorias/update', data, '/api/categorias/');
+    sendData('PUT', '/api/categorias/', data, '/api/categorias/index/');
 }
 
 function deleteCategoria(id) {
     if (confirm('Deseja excluir a categoria?'))
-        sendData('DELETE', '/api/categorias/delete?Id=' + id, null, '/api/categorias/');
+        sendData('DELETE', '/api/categorias/' + id, null, '/api/categorias/index/');
 }
 
 function validaForm() {
